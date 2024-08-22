@@ -75,7 +75,7 @@ pipeline {
             steps {
                  script{
                 sshagent(['slave2']) {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+                withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) 
                 echo "Run the docker container"
                 sh "ssh -o StrictHostKeyChecking=no ${DEPLOY_SERVER} sudo yum install docker -y"
                sh "ssh ${DEPLOY_SERVER} sudo systemctl start docker"
@@ -84,7 +84,7 @@ pipeline {
                     }
             }
         }
-    }
+    } 
         }
         
 
